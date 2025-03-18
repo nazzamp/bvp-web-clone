@@ -1,0 +1,59 @@
+.Btn {
+  /* width: 150px; */
+  /* height: 50px; */
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 13.5px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px;
+  cursor: pointer;
+  background: linear-gradient(-45deg, #03125c, #1862a7);
+  background-size: 1000% 1000%;
+  animation: gradient 5s ease infinite;
+  transition-duration: 0.1s;
+  font-size: 16px;
+}
+/* Button's gradient animation */
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+/* Effect on Hover*/
+.Btn::before {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 100%;
+  left: -70px;
+  top: 0;
+  background-color: rgba(214, 199, 255, 0.329);
+  filter: blur(10px);
+  transition-duration: 0.3s;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.Btn:hover::before {
+  transform: translateX(250px);
+  transition-duration: 0.3s;
+}
+/* Effect on click */
+.Btn:active {
+  transform: translate(2px, 2px);
+  transition-duration: 0.1s;
+}
