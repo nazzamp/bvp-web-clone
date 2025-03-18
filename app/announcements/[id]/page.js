@@ -7,6 +7,7 @@ import React from "react";
 import parse from "html-react-parser";
 import "./news-detail-style.css";
 import { LuClock } from "react-icons/lu";
+import Spinner from "@/components/spinner/spinner";
 
 const AnnouncementDetail = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const AnnouncementDetail = () => {
       ),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <Spinner />;
 
   if (error) return "An error has occurred: " + error.message;
 

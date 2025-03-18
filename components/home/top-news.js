@@ -5,14 +5,21 @@ import { API_PATH } from "@/constants/constants";
 const TopNews = ({ data }) => {
   const renderItem = (item, index) => {
     return (
-      <News
-        key={index}
-        title={item?.title}
-        image={
-          item?.cover?.url ? API_PATH + item?.cover?.url : "/images/logo.png"
+      <div
+        className={
+          index % 5 === 0 || index % 5 === 1 ? "col-span-6" : "col-span-4"
         }
-        id={item?.documentId}
-      />
+        key={index}
+      >
+        <News
+          key={index}
+          title={item?.title}
+          image={
+            item?.cover?.url ? API_PATH + item?.cover?.url : "/images/logo.png"
+          }
+          id={item?.documentId}
+        />
+      </div>
     );
   };
 
@@ -21,33 +28,24 @@ const TopNews = ({ data }) => {
   }
 
   const firstItem = data[0];
-  const thirdItemBelow = [data[1], data[2], data[3]];
+  const leftData = [...data.slice(1)];
 
   return (
-    <div className="grid grid-cols-3 gap-6">
-      <div className="col-span-2">
-        <div className="flex flex-col gap-4">
-          <News
-            title={firstItem.title}
-            coverHeight={320}
-            image={
-              firstItem?.cover?.url
-                ? API_PATH + firstItem?.cover?.url
-                : "/images/logo.png"
-            }
-            textOnImage
-            textSize={20}
-            id={firstItem.documentId}
-          />
-          <div className="grid grid-cols-3 gap-4">
-            {thirdItemBelow.map(renderItem)}
-          </div>
-        </div>
-      </div>
-      <div className="col-span-1">
-        <div className="flex flex-col gap-6">
-          {thirdItemBelow.map(renderItem)}
-        </div>
+    <div className="flex flex-col gap-4">
+      <News
+        title={firstItem.title}
+        coverHeight={320}
+        image={
+          firstItem?.cover?.url
+            ? API_PATH + firstItem?.cover?.url
+            : "/images/logo.png"
+        }
+        textOnImage
+        textSize={20}
+        id={firstItem.documentId}
+      />
+      <div className="grid grid-cols-12 gap-x-4 gap-y-10">
+        {leftData.map(renderItem)}
       </div>
     </div>
   );

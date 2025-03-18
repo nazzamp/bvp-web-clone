@@ -1,17 +1,17 @@
 "use client";
 
-import NewsHorizontal from "@/components/home/news-horizontal";
-import Spinner from "@/components/spinner/spinner";
 import { API_PATH } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
+import NewsHorizontal from "@/components/home/news-horizontal";
+import Spinner from "@/components/spinner/spinner";
 
-const NewsPage = () => {
+const CommunityHealth = () => {
   const { isPending, error, data } = useQuery({
-    queryKey: ["news"],
+    queryKey: ["community-healths"],
     queryFn: () =>
       fetch(
         API_PATH +
-          "/api/news?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc"
+          "/api/community-healths?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc"
       ).then((res) => res.json()),
   });
 
@@ -30,24 +30,23 @@ const NewsPage = () => {
         id={item?.documentId}
         textSize={20}
         time={item?.writtenAt}
+        path="community-healths"
       />
     );
   };
 
-  if (!data?.data?.length) {
-    return;
-  }
-
   return (
-    <div className="flex w-full flex-col">
-      <span className="uppercase font-bold text-2xl text-[#0066B1] mb-8">
-        Tin tức sự kiện
-      </span>
-      <div className="container flex flex-col gap-6">
-        {data?.data?.map(renderItem)}
+    <div className="col-span-1 flex flex-col gap-4">
+      <div className="flex flex-col rounded-xl overflow-hidden">
+        <span className="uppercase font-bold text-2xl text-[#0066B1]">
+          Sức khoẻ cộng đồng
+        </span>
+        <div className="flex flex-col mt-6 gap-4">
+          {data?.data?.map(renderItem)}
+        </div>
       </div>
     </div>
   );
 };
 
-export default NewsPage;
+export default CommunityHealth;

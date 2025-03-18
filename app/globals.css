@@ -128,3 +128,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .container {
+    @apply !max-w-7xl px-4 self-center;
+  }
+}

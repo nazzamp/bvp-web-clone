@@ -11,11 +11,12 @@ const NewsHorizontal = ({
   textOnImage = false,
   textSize = 16,
   time,
+  path = "news",
 }) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push("/news/" + id);
+    router.push("/" + path + "/" + id);
   };
 
   return (

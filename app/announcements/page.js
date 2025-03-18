@@ -3,6 +3,7 @@
 import { API_PATH } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
 import AnnouncementItem from "./announcement-item";
+import Spinner from "@/components/spinner/spinner";
 
 const Announcement = () => {
   const { isPending, error, data } = useQuery({
@@ -10,11 +11,11 @@ const Announcement = () => {
     queryFn: () =>
       fetch(
         API_PATH +
-          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt"
+          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc"
       ).then((res) => res.json()),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <Spinner />;
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -31,7 +32,7 @@ const Announcement = () => {
 
   return (
     <div className="col-span-1 flex flex-col gap-4">
-      <div className="flex flex-col rounded-xl overflow-hidden">
+      <div className="flex flex-col overflow-hidden">
         <span className="uppercase font-bold text-2xl text-[#0066B1]">
           Thông báo
         </span>

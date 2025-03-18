@@ -12,7 +12,9 @@ const AnnouncementItem = ({ id, title, writtenAt }) => {
     <div className="flex gap-1 cursor-pointer" onClick={handleClick}>
       <div>
         <div className="flex shrink">
-          <p className="inline-block">{title}</p>
+          <p className="inline-block text-[#045b9a] hover:text-[#2c446e]">
+            {title}
+          </p>
         </div>
         <p className="text-sm mt-1 text-zinc-700">({writtenAt})</p>
       </div>

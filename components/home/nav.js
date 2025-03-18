@@ -97,15 +97,11 @@ const DATA = [
   },
   {
     title: "Y tế Quảng Ninh",
-    link: "",
+    link: "/quang-ninh-medicals",
   },
   {
     title: "Sức khoẻ cộng đồng",
-    link: "",
-  },
-  {
-    title: "Văn bản",
-    link: "",
+    link: "/community-healths",
   },
   {
     title: "Thông báo",
@@ -167,7 +163,9 @@ const TopNav = () => {
       <div className="flex w-full justify-center bg-[#0285E6]">
         <div className="flex items-center justify-between container">
           <div className="flex items-center gap-8">
-            <AiFillHome className="text-white" />
+            <div onClick={handleClickLogo} className="cursor-pointer">
+              <AiFillHome className="text-white" size={20} />
+            </div>
             {DATA.map(renderItem)}
           </div>
           <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />

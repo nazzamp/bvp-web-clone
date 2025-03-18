@@ -10,6 +10,7 @@ import { FaPhoneVolume } from "react-icons/fa6";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { LuLink } from "react-icons/lu";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import Spinner from "../spinner/spinner";
 
 const Announcement = () => {
   const router = useRouter();
@@ -19,11 +20,11 @@ const Announcement = () => {
     queryFn: () =>
       fetch(
         API_PATH +
-          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt"
+          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc?pagination[page]=1&pagination[pageSize]=10"
       ).then((res) => res.json()),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <Spinner />;
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -53,13 +54,13 @@ const Announcement = () => {
 
   const renderConnectionLink = (item, index) => {
     return (
-      <div key={index}>
+      <a key={index} href={item.link} target="_blank">
         <img
           src={"/images/links/" + item?.image}
           alt="hospital"
           style={{ width: "100%", height: "auto" }}
         />
-      </div>
+      </a>
     );
   };
 
@@ -87,8 +88,8 @@ const Announcement = () => {
           </div>
           <div className="flex flex-col items-center gap-2">
             <span>
-              Đường dây nóng thông báo dịch tỉnh
-              <br /> Quảng Ninh
+              Đường dây nóng thông báo dịch
+              <br /> tỉnh Quảng Ninh
             </span>
             <div className="flex items-center gap-2 text-red-500">
               <FaPhoneVolume />

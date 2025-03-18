@@ -7,6 +7,7 @@ import React from "react";
 import parse from "html-react-parser";
 import "./news-detail-style.css";
 import { LuClock } from "react-icons/lu";
+import Spinner from "@/components/spinner/spinner";
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const NewsDetail = () => {
       ),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <Spinner />;
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -33,9 +34,11 @@ const NewsDetail = () => {
           <LuClock />
           <p className="italic">{data?.data?.writtenAt}</p>
         </div>
-        <div className="flex flex-col gap-4 news-detail-style">
-          {parse(data?.data?.content)}
-        </div>
+        {data?.data?.content && (
+          <div className="flex flex-col gap-4 news-detail-style">
+            {parse(data?.data?.content)}
+          </div>
+        )}
       </div>
     </div>
   );

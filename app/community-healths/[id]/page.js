@@ -9,13 +9,15 @@ import "./news-detail-style.css";
 import { LuClock } from "react-icons/lu";
 import Spinner from "@/components/spinner/spinner";
 
-const DepartmentDetail = () => {
+const CommunityDetail = () => {
   const { id } = useParams();
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["departmentDetail"],
+    queryKey: ["community-detail"],
     queryFn: () =>
-      fetch(API_PATH + "/api/departments/" + id).then((res) => res.json()),
+      fetch(
+        API_PATH + "/api/community-healths/" + id + "?populate[0]=cover"
+      ).then((res) => res.json()),
   });
 
   if (isPending) return <Spinner />;
@@ -42,4 +44,4 @@ const DepartmentDetail = () => {
   );
 };
 
-export default DepartmentDetail;
+export default CommunityDetail;
