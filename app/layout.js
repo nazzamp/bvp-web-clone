@@ -1,9 +1,9 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-import Nav from "../components/home/nav";
-import Announcement from "@/components/home/announcement";
-import Footer from "@/components/home/footer";
+import Nav from "../components/common/nav";
+import Announcement from "@/components/common/announcement";
+import HomeFooter from "@/components/home/home-footer";
 
 const plusJakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
@@ -16,6 +16,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  console.log(children?.props?.template.children);
+
   return (
     <html lang="en">
       <body
@@ -23,7 +25,8 @@ export default function RootLayout({ children }) {
       >
         <Nav />
         <Provider>
-          <div className="flex w-full flex-col items-center pb-12">
+          <div className="flex w-full flex-col items-center pb-12 bg-[#f5fcff]">
+            {/* <div className="container flex flex-col">{children}</div> */}
             <div className="container flex flex-col">
               <div className="grid grid-cols-4 mt-6 gap-10">
                 <div className="col-span-3">{children}</div>
@@ -32,7 +35,7 @@ export default function RootLayout({ children }) {
             </div>
           </div>
         </Provider>
-        <Footer />
+        <HomeFooter />
       </body>
     </html>
   );

@@ -1,0 +1,25 @@
+.cta-button {
+  background: linear-gradient(140.14deg, #157ec6 15.05%, #0f8cb0 114.99%)
+    padding-box;
+  border-radius: 100;
+  text-shadow: 1px 1px 1px #00000040;
+  box-shadow: 8px 8px 20px 0px rgba(69, 9, 0, 0.207);
+  padding: 12px 28px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 20;
+}
+
+.cta-button:hover {
+  box-shadow: none;
+  opacity: 100%;
+  background: linear-gradient(140.14deg, #1176b9 15.05%, #097593 114.99%)
+    padding-box;
+}

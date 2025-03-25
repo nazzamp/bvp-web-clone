@@ -1,6 +1,6 @@
 "use client";
 
-import NewsHorizontal from "@/components/home/news-horizontal";
+import NewsHorizontal from "@/components/common/news-horizontal";
 import Spinner from "@/components/spinner/spinner";
 import { API_PATH } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
