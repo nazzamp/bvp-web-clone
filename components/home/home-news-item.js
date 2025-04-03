@@ -1,6 +1,6 @@
 import { API_PATH } from "@/constants/constants";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const HomeNewsItem = ({ data }) => {
   const router = useRouter();

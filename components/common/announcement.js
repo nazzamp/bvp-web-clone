@@ -3,7 +3,7 @@
 import { API_PATH, CONNECT_LINKS } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import React from "react";
 import { FaPhoneFlip } from "react-icons/fa6";
 import { FaPhoneVolume } from "react-icons/fa6";

@@ -4,16 +4,31 @@ import { API_PATH } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
 import AnnouncementItem from "./announcement-item";
 import Spinner from "@/components/spinner/spinner";
+import { PaginationCustom } from "@/components/pagination/pagination";
+import qs from "qs";
+import { useState } from "react";
 
 const Announcement = () => {
+  const [recentPage, setRecentPage] = useState(1);
+
   const { isPending, error, data } = useQuery({
-    queryKey: ["announcements"],
+    queryKey: ["announcements", recentPage],
     queryFn: () =>
-      fetch(
-        API_PATH +
-          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc"
-      ).then((res) => res.json()),
+      fetch(API_PATH + `/api/announcements?${query}`).then((res) => res.json()),
+    keepPreviousData: true,
   });
+
+  const query = qs.stringify(
+    {
+      populate: ["cover"],
+      fields: ["title", "documentId", "writtenAt"],
+      sort: ["writtenAt:desc"],
+      pagination: { page: recentPage, pageSize: 10 },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
 
   if (isPending) return <Spinner />;
 
@@ -36,9 +51,18 @@ const Announcement = () => {
         <span className="uppercase font-bold text-2xl text-[#0066B1]">
           Thông báo
         </span>
-        <div className="flex flex-col mt-6 gap-4">
-          {data?.data?.map(renderItem)}
-        </div>
+        {data?.data && (
+          <>
+            <div className="flex flex-col mt-6 gap-4">
+              {data?.data?.map(renderItem)}
+            </div>
+            <PaginationCustom
+              recentPage={data?.meta.pagination.page}
+              lastPage={data?.meta.pagination.pageCount}
+              setRecentPage={setRecentPage}
+            />
+          </>
+        )}
       </div>
     </div>
   );

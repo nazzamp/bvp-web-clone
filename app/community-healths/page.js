@@ -4,16 +4,32 @@ import { API_PATH } from "@/constants/constants";
 import { useQuery } from "@tanstack/react-query";
 import NewsHorizontal from "@/components/common/news-horizontal";
 import Spinner from "@/components/spinner/spinner";
+import { useState } from "react";
+import QueryString from "qs";
+import { PaginationCustom } from "@/components/pagination/pagination";
 
 const CommunityHealth = () => {
+  const [recentPage, setRecentPage] = useState(1);
+
   const { isPending, error, data } = useQuery({
-    queryKey: ["community-healths"],
+    queryKey: ["community-healths", recentPage],
     queryFn: () =>
-      fetch(
-        API_PATH +
-          "/api/community-healths?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc"
-      ).then((res) => res.json()),
+      fetch(API_PATH + `/api/community-healths?${query}`).then((res) =>
+        res.json()
+      ),
   });
+
+  const query = QueryString.stringify(
+    {
+      populate: ["cover"],
+      fields: ["title", "documentId", "writtenAt"],
+      sort: ["writtenAt:desc"],
+      pagination: { page: recentPage, pageSize: 10 },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
 
   if (isPending) return <Spinner />;
 
@@ -41,9 +57,20 @@ const CommunityHealth = () => {
         <span className="uppercase font-bold text-2xl text-[#0066B1]">
           Sức khoẻ cộng đồng
         </span>
-        <div className="flex flex-col mt-6 gap-4">
-          {data?.data?.map(renderItem)}
-        </div>
+        {data && (
+          <>
+            <div className="flex flex-col mt-6 gap-4">
+              {data?.data?.map(renderItem)}
+            </div>
+            {data?.meta.pagination.pageCount !== 1 && (
+              <PaginationCustom
+                recentPage={data?.meta.pagination.page}
+                lastPage={data?.meta.pagination.pageCount}
+                setRecentPage={setRecentPage}
+              />
+            )}
+          </>
+        )}
       </div>
     </div>
   );

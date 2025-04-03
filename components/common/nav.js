@@ -6,7 +6,7 @@ import GradAniButton from "../grad-ani-button/grad-ani-button";
 import Link from "next/link";
 import Image from "next/image";
 import { AiFillHome } from "react-icons/ai";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 
 const DATA = [
   {
