@@ -1,7 +1,7 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Provider from "./provider";
-import Nav from "../components/common/nav";
+import Nav from "@/components/common/nav";
 import Announcement from "@/components/common/announcement";
 import HomeFooter from "@/components/home/home-footer";
 
