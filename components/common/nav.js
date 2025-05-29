@@ -4,13 +4,11 @@ import Logo from "../logo/logo";
 import TopNavDropdown from "../top-nav-dropdown/top-nav-dropdown";
 import GradAniButton from "../grad-ani-button/grad-ani-button";
 import Link from "next/link";
-import Image from "next/image";
-import { AiFillHome } from "react-icons/ai";
 import { useRouter } from "nextjs-toploader/app";
 
 const DATA = [
   {
-    title: "giới thiệu",
+    title: "Giới thiệu",
     link: "",
     field: [
       {
@@ -120,7 +118,7 @@ const TopNav = () => {
     }
     return (
       <Link href={item.link} key={index}>
-        <span className="uppercase font-bold text-white">{item.title}</span>
+        <span className="font-bold text-[#273C8C]">{item.title}</span>
       </Link>
     );
   };
@@ -134,42 +132,15 @@ const TopNav = () => {
   };
 
   return (
-    <div className="flex flex-col w-full bg-[#017DC8]">
-      <div className="flex w-full justify-center bg-[#017DC8]">
-        <div
-          className="flex items-center justify-between container overflow-hidden py-2"
-          style={{
-            backgroundImage: `url(/images/header-bg.jpg)`,
-            backgroundSize: "cover",
-          }}
-        >
-          <Image
-            src={"/images/header-logo.png"}
-            alt="logo"
-            width={120}
-            height={120}
-            onClick={handleClickLogo}
-            className="cursor-pointer"
-          />
-          <Image
-            src={"/images/header-1.png"}
-            alt="logo"
-            width={560}
-            height={120}
-          />
-          <p></p>
-        </div>
-      </div>
-      <div className="flex w-full justify-center bg-[#0285E6]">
-        <div className="flex items-center justify-between container">
-          <div className="flex items-center gap-8">
-            <div onClick={handleClickLogo} className="cursor-pointer">
-              <AiFillHome className="text-white" size={20} />
-            </div>
-            {DATA.map(renderItem)}
+    <div className="flex w-full justify-center fixed top-6 z-30">
+      <div className="flex items-center justify-between container bg-white rounded-full shadow-md">
+        <div className="flex items-center gap-8">
+          <div onClick={handleClickLogo} className="cursor-pointer">
+            <Logo theme="dark" />
           </div>
-          <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />
+          {DATA.map(renderItem)}
         </div>
+        <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />
       </div>
     </div>
   );

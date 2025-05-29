@@ -9,8 +9,8 @@ const Logo = ({ theme = "dark" }) => {
       <Image src={"/images/logo.png"} width={64} height={64} alt="logo" />
       <p
         className={
-          "uppercase font-extrabold leading-tight " +
-          (isDark ? "text-primaryBlue" : "text-white")
+          "text-sm uppercase font-extrabold leading-tight " +
+          (isDark ? "text-[#273C8C]" : "text-white")
         }
       >
         Bệnh viện phổi

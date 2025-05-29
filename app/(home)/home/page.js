@@ -9,21 +9,21 @@ import HomeTopSlide from "@/components/home/home-top-slide";
 import TopNav from "@/components/top-nav/top-nav";
 import "@/components/home/home.css";
 import FloatButton from "@/components/float-button/float-button";
+import HomeTop from "@/components/home/home-top";
 
 const Home = () => {
   return (
-    <div className="w-full flex flex-col items-center">
-      {/* <div className="container flex flex-col items-center mt-[88px]"> */}
-      <HomeTopSlide />
-      <HomeIntro />
-      <HomeNews />
-      <HomePros />
-      <HomeReasons />
-      <HomeFAQ />
-      <HomeMap />
-      {/* </div> */}
-      {/* <HomeFooter /> */}
-      <FloatButton />
+    <div className="w-full flex flex-col flex-1">
+      <HomeTop />
+      <div className="container">
+        <HomeIntro />
+        <HomeNews />
+        <HomePros />
+        <HomeReasons />
+        <HomeFAQ />
+        <HomeMap />
+        <FloatButton />
+      </div>
     </div>
   );
 };

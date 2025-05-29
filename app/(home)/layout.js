@@ -27,9 +27,7 @@ export default function RootLayout({ children }) {
         <Nav />
         <Provider>
           <div className="flex w-full flex-col items-center pb-12 bg-[#f5fcff]">
-            <div className="container flex flex-col">
-              <div className="mt-6">{children}</div>
-            </div>
+            {children}
           </div>
         </Provider>
         <HomeFooter />

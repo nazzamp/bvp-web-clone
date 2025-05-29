@@ -44,8 +44,8 @@ const TopNavDropdown = ({ title, field }) => {
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
     >
-      <p className="uppercase font-bold text-white">{title}</p>
-      <FaChevronDown className="text-white" />
+      <p className="font-bold text-[#273C8C]">{title}</p>
+      <FaChevronDown className="text-[#273C8C]" />
       <div
         className="transition-all absolute top-[72px] bg-[#005EBD] w-[400px] rounded-b-2xl overflow-hidden z-50 py-2"
         style={{
