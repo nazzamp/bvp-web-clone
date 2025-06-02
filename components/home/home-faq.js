@@ -37,10 +37,10 @@ const HomeFAQ = () => {
     <div className="mt-48 w-full rounded-3xl flex flex-col items-center">
       <div className="flex items-center gap-1 mb-2 justify-center">
         <Image src={"/svgs/info.svg"} alt="idea icon" width={24} height={24} />
-        <span className="uppercase text-lg font-bold text-[#3D779F]">FAQ</span>
+        <span className="uppercase text-lg font-bold text-[#273C8C]">FAQ</span>
       </div>
-      <h2 className="text-center font-bold text-2xl bg-gradient-to-l from-[#1879BC] to-[#0D7E8D] bg-clip-text text-transparent max-w-[560px]">
-        CÂU HỎI THƯỜNG GẶP
+      <h2 className="text-center font-bold text-4xl text-[#273C8C] max-w-[560px]">
+        Câu hỏi thường gặp
       </h2>
       <div className="w-[800px] flex flex-col items-center gap-3 mt-12 relative z-10">
         {DATA.map(renderItem)}

@@ -132,8 +132,11 @@ const TopNav = () => {
   };
 
   return (
-    <div className="flex w-full justify-center fixed top-6 z-30">
-      <div className="flex items-center justify-between container bg-white rounded-full shadow-md">
+    <div
+      suppressHydrationWarning
+      className="flex w-full justify-center fixed top-4 z-30"
+    >
+      <div className="flex items-center justify-between container bg-white rounded-full shadow-md pl-1">
         <div className="flex items-center gap-8">
           <div onClick={handleClickLogo} className="cursor-pointer">
             <Logo theme="dark" />

@@ -10,6 +10,7 @@ import TopNav from "@/components/top-nav/top-nav";
 import "@/components/home/home.css";
 import FloatButton from "@/components/float-button/float-button";
 import HomeTop from "@/components/home/home-top";
+import HomeTech from "@/components/home/home-tech";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <HomeTop />
       <div className="container">
         <HomeIntro />
+        <HomeTech />
         <HomeNews />
         <HomePros />
         <HomeReasons />

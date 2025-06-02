@@ -19,12 +19,12 @@ const HomeFAQItem = ({ data }) => {
 
   return (
     <div className="w-full" onClick={handleClickItem}>
-      <div className="text-primaryBlue bg-white rounded-2xl px-10 py-6 flex justify-between cursor-pointer w-full">
+      <div className="text-[#273C8C] bg-white rounded-2xl px-10 py-6 flex justify-between cursor-pointer w-full">
         <p className="text-xl font-medium">{data?.title}</p>
         {renderIcon()}
       </div>
       <div
-        className="text-primaryBlue bg-[#EAF6FC] rounded-2xl flex justify-between cursor-pointer w-full mt-2 overflow-hidden transition-all"
+        className="text-[#273C8C] bg-[#f0f3f9] rounded-2xl flex justify-between cursor-pointer w-full mt-2 overflow-hidden transition-all"
         style={{
           height: isOpen ? "fit-content" : "0px",
           padding: isOpen ? "40px" : "0px",
