@@ -24,7 +24,7 @@ const Home = () => {
         <HomeReasons />
         <HomeFAQ />
         <HomeMap />
-        <FloatButton />
+        {/* <FloatButton /> */}
       </div>
     </div>
   );

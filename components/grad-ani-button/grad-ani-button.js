@@ -3,7 +3,7 @@ import "./grad-ani-button.css";
 
 const GradAniButton = ({ title = "demo", ...prop }) => {
   return (
-    <button className="Btn" {...prop}>
+    <button className={"Btn"} {...prop}>
       {title}
     </button>
   );

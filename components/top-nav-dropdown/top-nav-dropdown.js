@@ -8,8 +8,6 @@ const TopNavDropdown = ({ title, field }) => {
   const [isActive, setIsActive] = useState(false);
   const router = useRouter();
 
-  console.log({ isActive });
-
   const handleMouseOver = () => {
     if (!isActive) {
       setIsActive(true);

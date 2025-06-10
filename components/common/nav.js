@@ -5,6 +5,11 @@ import TopNavDropdown from "../top-nav-dropdown/top-nav-dropdown";
 import GradAniButton from "../grad-ani-button/grad-ani-button";
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
+import { FiMenu } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
+import { useState } from "react";
+import { FaChevronDown } from "react-icons/fa6";
+import TopNavDropdownMenu from "../top-nav-dropdown/top-nav-dropdown-menu";
 
 const DATA = [
   {
@@ -109,11 +114,21 @@ const DATA = [
 
 const TopNav = () => {
   const router = useRouter();
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const renderItem = (item, index) => {
-    if (item?.field) {
+    if (item?.field && !isOpenMenu) {
       return (
         <TopNavDropdown title={item?.title} key={index} field={item?.field} />
+      );
+    }
+    if (item?.field) {
+      return (
+        <TopNavDropdownMenu
+          title={item?.title}
+          key={index}
+          field={item?.field}
+        />
       );
     }
     return (
@@ -134,16 +149,50 @@ const TopNav = () => {
   return (
     <div
       suppressHydrationWarning
-      className="flex w-full justify-center fixed top-4 z-30"
+      className="flex w-full justify-center fixed top-4 z-30 px-4 @container"
     >
-      <div className="flex items-center justify-between container bg-white rounded-full shadow-md pl-1">
+      <div className="hidden items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:flex">
         <div className="flex items-center gap-8">
           <div onClick={handleClickLogo} className="cursor-pointer">
             <Logo theme="dark" />
           </div>
-          {DATA.map(renderItem)}
+          <div className="flex flex-row items-center gap-6">
+            {DATA.map(renderItem)}
+          </div>
         </div>
-        <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />
+        <div>
+          <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />
+        </div>
+      </div>
+      <div className="flex items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:hidden py-1">
+        <div className="flex items-center gap-8">
+          <div onClick={handleClickLogo} className="cursor-pointer">
+            <Logo size={32} theme="dark" isShowText={false} />
+          </div>
+        </div>
+        <div>
+          {!isOpenMenu ? (
+            <div onClick={() => setIsOpenMenu(true)} className="cursor-pointer">
+              <FiMenu className="text-[#273C8C] text-xl" />
+            </div>
+          ) : (
+            <div className="absolute -top-4 left-0 w-screen h-screen bg-white flex justify-between p-6 overflow-y-scroll">
+              <div className="flex flex-col justify-between">
+                <div className="flex flex-col gap-6">
+                  {DATA.map(renderItem)}
+                </div>
+                <GradAniButton
+                  title="Đăng ký khám bệnh"
+                  onClick={handleClick}
+                />
+              </div>
+              <IoMdClose
+                onClick={() => setIsOpenMenu(false)}
+                className="text-[#273C8C] text-xl"
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

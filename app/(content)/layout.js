@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <Nav />
         <Provider>
-          <div className="flex w-full flex-col items-center pb-12 bg-[#f5fcff]">
+          <div className="flex w-full flex-col items-center pb-12 bg-[#f5fcff] pt-28">
             {/* <div className="container flex flex-col">{children}</div> */}
             <div className="container flex flex-col">
               <div className="grid grid-cols-4 mt-6 gap-10">

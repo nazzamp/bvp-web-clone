@@ -12,7 +12,7 @@ const HomeTop = () => {
             <br />
             hơi thở khoẻ mạnh
           </p>
-          <p className="text-[#273C8C] text-sm leading-normal mt-5 max-w-[480px] mb-8">
+          <p className="text-[#273C8C] text-base leading-normal mt-5 max-w-[480px] mb-8">
             Bệnh viện Phổi Quảng Ninh mang sứ mệnh chữa trị, tiếp tục nâng cao
             chất lượng khám, chữa bệnh, các dịch vụ y tế chất lượng cao, hội
             chẩn ca bệnh từ xa với tuyến trên, tuyến dưới, phát triển chuyên môn
