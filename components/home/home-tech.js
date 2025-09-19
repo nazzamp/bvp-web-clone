@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import HomeTechItem from "./home-tech-item";
+import { motion } from "motion/react";
 
 const DATA = [
   {
@@ -20,7 +23,17 @@ const HomeTech = () => {
   return (
     <div className="mt-40">
       <div className="grid grid-cols-2">
-        <div className="col-span-1 flex flex-col justify-center">
+        <motion.div
+          className="col-span-1 flex flex-col justify-center"
+          initial={{ opacity: 0, transform: "translateY(-32px)" }}
+          whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 1.2,
+            delay: 0.5,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
           <h2 className="font-bold text-4xl bg-gradient-to-l text-[#273C8C] mt-2 leading-[48px]">
             Kỹ thuật chuyên sâu <br /> & chẩn đoán sớm
           </h2>
@@ -28,8 +41,16 @@ const HomeTech = () => {
             Chúng tôi phát triển các kỹ thuật tiên tiến trong việc chẩn đoán và
             điều trị bệnh lao, bao gồm
           </p>
-        </div>
-        <div className="col-span-1 relative flex justify-center">
+        </motion.div>
+        <motion.div
+          className="col-span-1 relative flex justify-center"
+          animate={{ y: [0, -20, 0] }}
+          transition={{
+            repeat: Infinity,
+            duration: 1,
+            ease: "linear",
+          }}
+        >
           <Image
             src={"/images/lab-01.png"}
             alt="doctor"
@@ -39,7 +60,7 @@ const HomeTech = () => {
           />
           <div className="rounded-full bg-[#EDF4FF] w-[520px] h-[520px] absolute bottom-[-320px] left-[0px] z-0 animate-pulse" />
           <div className="rounded-full bg-[#E5EFFF] w-[400px] h-[400px] absolute bottom-[-320px] left-[0px] z-0 animate-pulse" />
-        </div>
+        </motion.div>
       </div>
       <div className="w-full grid grid-cols-3 gap-5 mt-12 mb-16 relative z-10">
         {DATA.map((item, index) => (

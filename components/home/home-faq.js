@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import HomeFAQItem from "./home-faq-item";
+import { motion } from "motion/react";
 
 const DATA = [
   {
@@ -35,29 +38,66 @@ const HomeFAQ = () => {
 
   return (
     <div className="mt-48 w-full rounded-3xl flex flex-col items-center">
-      <div className="flex items-center gap-1 mb-2 justify-center">
-        <Image src={"/svgs/info.svg"} alt="idea icon" width={24} height={24} />
-        <span className="uppercase text-lg font-bold text-[#273C8C]">FAQ</span>
-      </div>
-      <h2 className="text-center font-bold text-4xl text-[#273C8C] max-w-[560px]">
-        Câu hỏi thường gặp
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="flex items-center gap-1 mb-2 justify-center">
+          <Image
+            src={"/svgs/info.svg"}
+            alt="idea icon"
+            width={24}
+            height={24}
+          />
+          <span className="uppercase text-lg font-bold text-[#273C8C]">
+            FAQ
+          </span>
+        </div>
+        <h2 className="text-center font-bold text-4xl text-[#273C8C] max-w-[560px]">
+          Câu hỏi thường gặp
+        </h2>
+      </motion.div>
       <div className="w-[800px] flex flex-col items-center gap-3 mt-12 relative z-10">
         {DATA.map(renderItem)}
-        <Image
-          className="absolute -left-28 -z-10 top-12"
-          src={"/images/half-circle-grad.png"}
-          alt="half grad circle"
-          width={144}
-          height={367}
-        />
-        <Image
-          className="absolute -right-28 -z-10 bottom-12 scale-x-[-1] scale-y-[-1]"
-          src={"/images/half-circle-grad.png"}
-          alt="half grad circle"
-          width={144}
-          height={367}
-        />
+        <motion.div
+          className="absolute -left-28 -z-10 top-12 w-[367px] h-[367px] opacity-50"
+          animate={{ rotate: 360 }}
+          transition={{
+            repeat: Infinity,
+            duration: 6,
+            ease: "linear",
+          }}
+          style={{ transformOrigin: "center" }}
+        >
+          <Image
+            src={"/images/half-circle-grad.png"}
+            alt="half grad circle"
+            width={144}
+            height={367}
+          />
+        </motion.div>
+        <motion.div
+          className="absolute -right-28 -z-10 bottom-12 scale-x-[-1] scale-y-[-1] w-[367px] h-[367px] opacity-50"
+          animate={{ rotate: 360 }}
+          transition={{
+            repeat: Infinity,
+            duration: 6,
+            ease: "linear",
+          }}
+          style={{ transformOrigin: "center" }}
+        >
+          <Image
+            src={"/images/half-circle-grad.png"}
+            alt="half grad circle"
+            width={144}
+            height={367}
+          />
+        </motion.div>
       </div>
     </div>
   );

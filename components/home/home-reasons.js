@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
+import { motion } from "motion/react";
 
 const DATA = [
   [
@@ -75,15 +78,31 @@ const HomeReasons = () => {
 
   return (
     <div className="mt-48 w-full rounded-3xl flex flex-col items-center">
-      <div className="flex items-center gap-1 mb-2 justify-center">
-        <Image src={"/svgs/star.svg"} alt="idea icon" width={24} height={24} />
-        <span className="uppercase text-lg font-bold text-[#273C8C]">
-          ƯU THẾ
-        </span>
-      </div>
-      <h2 className="text-center font-bold text-3xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px] leading-[48px]">
-        Lý do chọn bệnh viện Phổi Quảng Ninh làm nơi khám chữa bệnh
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, transform: "translateY(-32px)" }}
+        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1.2,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="flex items-center gap-1 mb-2 justify-center">
+          <Image
+            src={"/svgs/star.svg"}
+            alt="idea icon"
+            width={24}
+            height={24}
+          />
+          <span className="uppercase text-lg font-bold text-[#273C8C]">
+            ƯU THẾ
+          </span>
+        </div>
+        <h2 className="text-center font-bold text-3xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px] leading-[48px]">
+          Lý do chọn bệnh viện Phổi Quảng Ninh làm nơi khám chữa bệnh
+        </h2>
+      </motion.div>
       <div className="w-full flex flex-col gap-2 mt-12">
         {DATA.map(renderRow)}
       </div>

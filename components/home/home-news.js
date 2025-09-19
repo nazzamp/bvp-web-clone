@@ -7,6 +7,7 @@ import ViewMoreButton from "../view-more-button/view-more-button";
 import Spinner from "../spinner/spinner";
 import { useQuery } from "@tanstack/react-query";
 import { API_PATH } from "@/constants/constants";
+import { motion } from "motion/react";
 
 const HomeNews = () => {
   const { isPending, error, data } = useQuery({
@@ -24,20 +25,30 @@ const HomeNews = () => {
 
   return (
     <div className="mt-32 w-full rounded-3xl flex flex-col items-center">
-      <div className="flex items-center gap-1 mb-2 justify-center">
-        <Image
-          src={"/svgs/speaker.svg"}
-          alt="idea icon"
-          width={24}
-          height={24}
-        />
-        <span className="uppercase text-lg font-bold text-[#273C8C]">
-          tin tức
-        </span>
-      </div>
-      <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent">
-        Sự kiện chính và thông báo
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 0.8,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="flex items-center gap-1 mb-2 justify-center">
+          <Image
+            src={"/svgs/speaker.svg"}
+            alt="idea icon"
+            width={24}
+            height={24}
+          />
+          <span className="uppercase text-lg font-bold text-[#273C8C]">
+            tin tức
+          </span>
+        </div>
+        <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent">
+          Sự kiện chính và thông báo
+        </h2>
+      </motion.div>
       <div className="w-full grid grid-cols-4 gap-7 mt-12 mb-16">
         {data?.data &&
           data.data.map((item, index) => (

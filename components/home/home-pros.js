@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import React from "react";
 import ViewMoreButton from "../view-more-button/view-more-button";
+import { motion } from "motion/react";
 
 const HomePros = () => {
   const FadeBox = ({ title, desc }) => {
@@ -14,7 +17,17 @@ const HomePros = () => {
 
   return (
     <div className="w-full mt-28">
-      <div className="flex justify-between">
+      <motion.div
+        className="flex justify-between"
+        initial={{ opacity: 0, transform: "translateY(-32px)" }}
+        whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1.2,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
         <div className="flex items-center gap-3 mb-2 justify-center">
           <Image
             src={"/images/pros.png"}
@@ -27,7 +40,7 @@ const HomePros = () => {
           </h2>
         </div>
         <ViewMoreButton theme="light" title="Xem thêm" />
-      </div>
+      </motion.div>
       <div className="grid grid-cols-2 mt-4 gap-3">
         <div
           className="h-[580px] relative rounded-l-2xl rounded-r-lg overflow-hidden"

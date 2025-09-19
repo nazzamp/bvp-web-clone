@@ -10,6 +10,8 @@ import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 import TopNavDropdownMenu from "../top-nav-dropdown/top-nav-dropdown-menu";
+import GradTopButton from "./grad-top-button/grad-top-button";
+import { motion } from "motion/react";
 
 const DATA = [
   {
@@ -147,9 +149,17 @@ const TopNav = () => {
   };
 
   return (
-    <div
+    <motion.div
       suppressHydrationWarning
       className="flex w-full justify-center fixed top-4 z-30 px-4 @container"
+      initial={{ opacity: 0, transform: "translateY(-32px)" }}
+      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 1.2,
+        delay: 0.5,
+        ease: [0, 0.71, 0.2, 1.01],
+      }}
     >
       <div className="hidden items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:flex">
         <div className="flex items-center gap-8">
@@ -161,7 +171,7 @@ const TopNav = () => {
           </div>
         </div>
         <div>
-          <GradAniButton title="Đăng ký khám bệnh" onClick={handleClick} />
+          <GradTopButton title="Đăng ký khám bệnh" onClick={handleClick} />
         </div>
       </div>
       <div className="flex items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:hidden py-1">
@@ -181,7 +191,7 @@ const TopNav = () => {
                 <div className="flex flex-col gap-6">
                   {DATA.map(renderItem)}
                 </div>
-                <GradAniButton
+                <GradTopButton
                   title="Đăng ký khám bệnh"
                   onClick={handleClick}
                 />
@@ -194,7 +204,7 @@ const TopNav = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

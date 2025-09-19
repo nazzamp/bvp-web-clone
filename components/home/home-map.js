@@ -1,19 +1,30 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "motion/react";
 
 const HomeMap = () => {
   return (
     <div className="mt-48 w-full rounded-3xl flex flex-col items-center mb-32">
-      <div className="flex items-center gap-1 mb-2 justify-center">
-        <Image src={"/svgs/map.svg"} alt="idea icon" width={24} height={24} />
-        <span className="uppercase text-lg font-bold text-[#273C8C]">
-          Bản đồ
-        </span>
-      </div>
-      <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px]">
-        Vị trí bệnh viện
-      </h2>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 1.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+      >
+        <div className="flex items-center gap-1 mb-2 justify-center">
+          <Image src={"/svgs/map.svg"} alt="idea icon" width={24} height={24} />
+          <span className="uppercase text-lg font-bold text-[#273C8C]">
+            Bản đồ
+          </span>
+        </div>
+        <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px]">
+          Vị trí bệnh viện
+        </h2>
+      </motion.div>
       <div
         className="mt-8"
         style={{
