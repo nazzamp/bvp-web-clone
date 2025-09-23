@@ -45,11 +45,11 @@ const HomeNews = () => {
             tin tức
           </span>
         </div>
-        <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent">
-          Sự kiện chính và thông báo
+        <h2 className="text-center font-bold text-3xl md:text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent">
+          Sự kiện chính và <br className="md:hidden block" /> thông báo
         </h2>
       </motion.div>
-      <div className="w-full grid grid-cols-4 gap-7 mt-12 mb-16">
+      <div className="w-full flex flex-col md:grid grid-cols-4 gap-7 mt-12 mb-16">
         {data?.data &&
           data.data.map((item, index) => (
             <HomeNewsItem data={item} key={index} />

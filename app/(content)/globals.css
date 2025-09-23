@@ -44,12 +44,12 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-html,
+/* html,
 body {
   width: 100dvw;
   height: 100dvh;
   overflow-x: hidden;
-}
+} */
 
 :root {
   --radius: 0.625rem;

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 const HomeMap = () => {
   return (
-    <div className="mt-48 w-full rounded-3xl flex flex-col items-center mb-32">
+    <div className="mt-24 md:mt-48 w-full rounded-3xl flex flex-col items-center md:mb-32 mb-16">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -21,7 +21,7 @@ const HomeMap = () => {
             Bản đồ
           </span>
         </div>
-        <h2 className="text-center font-bold text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px]">
+        <h2 className="text-center font-bold text-3xl md:text-4xl bg-gradient-to-l from-[#273C8C] to-[#273C8C] bg-clip-text text-transparent max-w-[560px]">
           Vị trí bệnh viện
         </h2>
       </motion.div>

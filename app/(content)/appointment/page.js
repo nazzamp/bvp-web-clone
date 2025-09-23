@@ -64,15 +64,22 @@ const Appointment = () => {
 
   const handleSubmit = () => {
     mutation.mutate();
+    window.scroll(0, 0);
   };
 
   return (
     <div>
-      <h1 className="font-bold text-2xl mb-6">Đăng ký khám bệnh</h1>
+      <h1 className="uppercase font-bold text-2xl text-[#0066B1] mb-8">
+        Đăng ký khám bệnh
+      </h1>
       <div className="flex flex-col max-w-96 gap-4">
         {INPUT_CONS.map(renderItem)}
       </div>
-      <Button className="mt-4" size={"lg"} onClick={handleSubmit}>
+      <Button
+        className="mt-4 w-full md:w-fit mr-2 bg-[#273C8C] hover:bg-[#697ec8] text-white font-semibold rounded-full px-6 py-2"
+        size={"lg"}
+        onClick={handleSubmit}
+      >
         Đăng ký
       </Button>
     </div>

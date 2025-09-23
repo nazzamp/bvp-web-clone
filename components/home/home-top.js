@@ -4,11 +4,39 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { motion } from "motion/react";
+import useIsMobile from "@/hooks/useIsMobile";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const HomeTop = () => {
+  const size = useWindowSize();
+
+  const getSideImageSize = () => {
+    if (size?.width > 1600) {
+      return 800;
+    }
+    if (size?.width > 1200) {
+      return 700;
+    }
+    if (size?.width > 1100) {
+      return 600;
+    }
+    if (size?.width > 1000) {
+      return 500;
+    }
+    return 400;
+  };
+
   return (
-    <div className="w-full bg-[#F4F8FE] flex justify-center relative rounded-b-4xl overflow-hidden">
-      <div className="w-full container h-[800px]">
+    <div className="w-full bg-[#F4F8FE] flex justify-center relative rounded-b-4xl md:overflow-hidden mt-16 md:mt-0">
+      <div className="w-full container md:h-[800px]">
+        <Image
+          src="/images/home-top-image.png"
+          alt="Home Top Slide"
+          width={800}
+          height={800}
+          className="relative z-20 h-[200px] mt-6 rounded-2xl md:hidden block"
+          style={{ objectFit: "cover" }}
+        />
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -18,8 +46,8 @@ const HomeTop = () => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <div className="w-full mt-[180px] relative z-0">
-            <p className="text-[#273C8C] text-5xl font-bold leading-tight">
+          <div className="w-full mt-6 md:mt-[180px] relative z-0">
+            <p className="text-[#273C8C] text-3xl md:text-5xl font-bold leading-tight">
               Nơi trả lại những
               <br />
               hơi thở khoẻ mạnh
@@ -39,7 +67,7 @@ const HomeTop = () => {
               }
               variant={"secondary"}
               style={{
-                boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+                boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
               }}
             >
               Hỏi đáp
@@ -67,6 +95,7 @@ const HomeTop = () => {
           </div>
         </motion.div>
         <motion.div
+          className="md:block hidden"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -75,13 +104,17 @@ const HomeTop = () => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
         >
-          <Image
-            src="/images/home-top-image.png"
-            alt="Home Top Slide"
-            width={800}
-            height={800}
+          <div
+            style={{ width: getSideImageSize(), height: 800 }}
             className="absolute top-0 right-0"
-          />
+          >
+            <Image
+              src="/images/home-top-image.png"
+              alt="Home Top Slide"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </div>
         </motion.div>
       </div>
     </div>

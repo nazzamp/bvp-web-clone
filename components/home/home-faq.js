@@ -37,7 +37,7 @@ const HomeFAQ = () => {
   };
 
   return (
-    <div className="mt-48 w-full rounded-3xl flex flex-col items-center">
+    <div className="mt-24 md:mt-48 w-full rounded-3xl flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -58,14 +58,14 @@ const HomeFAQ = () => {
             FAQ
           </span>
         </div>
-        <h2 className="text-center font-bold text-4xl text-[#273C8C] max-w-[560px]">
+        <h2 className="text-center font-bold text-3xl md:text-4xl text-[#273C8C] max-w-[560px]">
           Câu hỏi thường gặp
         </h2>
       </motion.div>
-      <div className="w-[800px] flex flex-col items-center gap-3 mt-12 relative z-10">
+      <div className="md:w-[800px] flex flex-col items-center gap-3 mt-12 relative z-10">
         {DATA.map(renderItem)}
         <motion.div
-          className="absolute -left-28 -z-10 top-12 w-[367px] h-[367px] opacity-50"
+          className="absolute -left-28 -z-10 top-12 w-[367px] h-[367px] opacity-50 hidden lg:block"
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,
@@ -82,7 +82,7 @@ const HomeFAQ = () => {
           />
         </motion.div>
         <motion.div
-          className="absolute -right-28 -z-10 bottom-12 scale-x-[-1] scale-y-[-1] w-[367px] h-[367px] opacity-50"
+          className="absolute -right-28 -z-10 bottom-12 scale-x-[-1] scale-y-[-1] w-[367px] h-[367px] opacity-50 hidden lg:block"
           animate={{ rotate: 360 }}
           transition={{
             repeat: Infinity,

@@ -7,14 +7,14 @@ import { FaClock } from "react-icons/fa6";
 const HomeFooter = () => {
   return (
     <div
-      className="text-white w-full flex justify-center py-28"
+      className="text-white w-full flex justify-center md:py-28 py-12"
       style={{
         backgroundImage: `url('/images/footer-bg.png')`,
         backgroundSize: "cover",
       }}
     >
-      <div className="container grid grid-cols-10">
-        <div className="col-span-2">
+      <div className="container md:grid grid-cols-10">
+        <div className="col-span-2 mb-12 md:mb-0">
           <Logo theme="light" />
         </div>
         <div className="col-span-4">
@@ -41,7 +41,7 @@ const HomeFooter = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-4">
+        <div className="col-span-4 mt-12 md:mt-0">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <FaClock size={20} />

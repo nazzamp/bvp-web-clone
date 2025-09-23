@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 
 const HomeIntro = () => {
   return (
-    <div className="mt-40 w-full gap-4 flex flex-col items-center">
+    <div className="mt-24 md:mt-40 w-full gap-4 flex flex-col items-center relative z-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -29,8 +29,9 @@ const HomeIntro = () => {
             </span>
           </div>
 
-          <h2 className="font-bold text-4xl bg-gradient-to-l text-[#273C8C] mt-2 leading-[48px] text-center">
-            Tìm hiểu về <br /> Bệnh viện Phổi Quảng Ninh
+          <h2 className="font-bold text-3xl md:text-4xl bg-gradient-to-l text-[#273C8C] mt-2 md:leading-[48px] text-center">
+            Tìm hiểu về <br /> Bệnh viện <br className="md:hidden block" /> Phổi
+            Quảng Ninh
           </h2>
           <p className="mt-3 text-[#4B5478] text-base max-w-[600px] font-medium text-center">
             Bệnh viện Phổi tỉnh Quảng Ninh là cơ sở y tế hàng đầu trong việc
@@ -42,9 +43,9 @@ const HomeIntro = () => {
         </div>
       </motion.div>
       <div className="w-full relative overflow-hidden mt-12">
-        <div className="grid grid-cols-4 gap-3">
-          <div className="col-span-3 grid grid-cols-3 gap-3">
-            <div className="col-span-2 h-[280px] relative rounded-lg overflow-hidden">
+        <div className="md:grid grid-cols-4 gap-3 flex flex-col">
+          <div className="md:col-span-3 md:grid grid-cols-3 gap-3 flex flex-col">
+            <div className="md:col-span-2 h-[280px] relative rounded-lg overflow-hidden">
               <Image
                 src={"/images/intro-1.png"}
                 alt="doctor"
@@ -52,7 +53,7 @@ const HomeIntro = () => {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="col-span-1 h-[280px] relative rounded-lg overflow-hidden">
+            <div className="md:col-span-1 h-[280px] relative rounded-lg overflow-hidden">
               <Image
                 src={"/images/intro-2.png"}
                 alt="doctor"
@@ -60,7 +61,7 @@ const HomeIntro = () => {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="col-span-1 h-[280px] relative rounded-lg overflow-hidden">
+            <div className="md:col-span-1 h-[280px] relative rounded-lg overflow-hidden">
               <Image
                 src={"/images/intro-3.png"}
                 alt="doctor"
@@ -68,7 +69,7 @@ const HomeIntro = () => {
                 style={{ objectFit: "cover" }}
               />
             </div>
-            <div className="col-span-2 h-[280px] relative rounded-lg overflow-hidden">
+            <div className="md:col-span-2 h-[280px] relative rounded-lg overflow-hidden">
               <Image
                 src={"/images/intro-4.png"}
                 alt="doctor"
@@ -77,7 +78,7 @@ const HomeIntro = () => {
               />
             </div>
           </div>
-          <div className="col-span-1 h-full relative rounded-lg overflow-hidden">
+          <div className="md:col-span-1 h-full relative rounded-lg overflow-hidden">
             <Image
               src={"/images/intro-5.png"}
               alt="doctor"

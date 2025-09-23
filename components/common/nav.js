@@ -2,16 +2,14 @@
 
 import Logo from "../logo/logo";
 import TopNavDropdown from "../top-nav-dropdown/top-nav-dropdown";
-import GradAniButton from "../grad-ani-button/grad-ani-button";
 import Link from "next/link";
 import { useRouter } from "nextjs-toploader/app";
 import { FiMenu } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa6";
 import TopNavDropdownMenu from "../top-nav-dropdown/top-nav-dropdown-menu";
 import GradTopButton from "./grad-top-button/grad-top-button";
-import { motion } from "motion/react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 
 const DATA = [
   {
@@ -117,6 +115,12 @@ const DATA = [
 const TopNav = () => {
   const router = useRouter();
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { scrollY } = useScroll();
+  const [scrollOffset, setScrollOffset] = useState("down");
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    setScrollOffset(scrollY.getPrevious());
+  });
 
   const renderItem = (item, index) => {
     if (item?.field && !isOpenMenu) {
@@ -130,11 +134,18 @@ const TopNav = () => {
           title={item?.title}
           key={index}
           field={item?.field}
+          setIsOpenMenu={setIsOpenMenu}
         />
       );
     }
     return (
-      <Link href={item.link} key={index}>
+      <Link
+        href={item.link}
+        key={index}
+        onClick={() => {
+          setIsOpenMenu(false);
+        }}
+      >
         <span className="font-bold text-[#273C8C]">{item.title}</span>
       </Link>
     );
@@ -146,65 +157,90 @@ const TopNav = () => {
 
   const handleClick = () => {
     router.push("/appointment");
+    setIsOpenMenu(false);
   };
 
   return (
-    <motion.div
-      suppressHydrationWarning
-      className="flex w-full justify-center fixed top-4 z-30 px-4 @container"
-      initial={{ opacity: 0, transform: "translateY(-32px)" }}
-      whileInView={{ opacity: 1, transform: "translateY(0px)" }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 1.2,
-        delay: 0.5,
-        ease: [0, 0.71, 0.2, 1.01],
-      }}
-    >
-      <div className="hidden items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:flex">
-        <div className="flex items-center gap-8">
-          <div onClick={handleClickLogo} className="cursor-pointer">
-            <Logo theme="dark" />
-          </div>
-          <div className="flex flex-row items-center gap-6">
-            {DATA.map(renderItem)}
-          </div>
-        </div>
-        <div>
-          <GradTopButton title="Đăng ký khám bệnh" onClick={handleClick} />
-        </div>
-      </div>
-      <div className="flex items-center justify-between container bg-white rounded-full shadow-md pl-1 @6xl:hidden py-1">
-        <div className="flex items-center gap-8">
-          <div onClick={handleClickLogo} className="cursor-pointer">
-            <Logo size={32} theme="dark" isShowText={false} />
-          </div>
-        </div>
-        <div>
-          {!isOpenMenu ? (
-            <div onClick={() => setIsOpenMenu(true)} className="cursor-pointer">
-              <FiMenu className="text-[#273C8C] text-xl" />
+    <>
+      <motion.div
+        suppressHydrationWarning
+        className="hidden md:flex w-full justify-center fixed top-4 z-30 transition-all duration-700 h-[88xp]"
+        style={{
+          background: scrollOffset > 100 ? "white" : "transparent",
+          boxShadow:
+            scrollOffset > 100
+              ? "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
+              : "none",
+          transform:
+            scrollOffset > 100 ? `translateY(-16px)` : `translateY(0px)`,
+        }}
+      >
+        <motion.div
+          className="flex items-center justify-between bg-white rounded-full container"
+          initial={{ opacity: 0 }}
+          whileInView={{
+            opacity: 1,
+            background: "white",
+            boxShadow:
+              scrollOffset > 100
+                ? "none"
+                : "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.7,
+            ease: [0, 0.71, 0.2, 1.01],
+          }}
+        >
+          <div className="flex items-center gap-8">
+            <div onClick={handleClickLogo} className="cursor-pointer">
+              <Logo theme="dark" />
             </div>
-          ) : (
-            <div className="absolute -top-4 left-0 w-screen h-screen bg-white flex justify-between p-6 overflow-y-scroll">
-              <div className="flex flex-col justify-between">
-                <div className="flex flex-col gap-6">
-                  {DATA.map(renderItem)}
+            <div className="flex flex-row items-center gap-6">
+              {DATA.map(renderItem)}
+            </div>
+          </div>
+          <div>
+            <GradTopButton title="Đăng ký khám bệnh" onClick={handleClick} />
+          </div>
+        </motion.div>
+      </motion.div>
+      <div className="flex md:hidden w-full justify-center fixed top-4 z-30 px-4 transition-all duration-500">
+        <div className="flex items-center justify-between container bg-white rounded-full shadow-md py-1">
+          <div className="flex items-center gap-8">
+            <div onClick={handleClickLogo} className="cursor-pointer">
+              <Logo size={32} theme="dark" isShowText={false} />
+            </div>
+          </div>
+          <div>
+            {!isOpenMenu ? (
+              <div
+                onClick={() => setIsOpenMenu(true)}
+                className="cursor-pointer"
+              >
+                <FiMenu className="text-[#273C8C] text-xl" />
+              </div>
+            ) : (
+              <div className="absolute -top-4 left-0 w-screen h-screen bg-white flex justify-between p-6 overflow-y-scroll">
+                <div className="flex flex-col justify-between">
+                  <div className="flex flex-col gap-6">
+                    {DATA.map(renderItem)}
+                  </div>
+                  <GradTopButton
+                    title="Đăng ký khám bệnh"
+                    onClick={handleClick}
+                  />
                 </div>
-                <GradTopButton
-                  title="Đăng ký khám bệnh"
-                  onClick={handleClick}
+                <IoMdClose
+                  onClick={() => setIsOpenMenu(false)}
+                  className="text-[#273C8C] text-xl"
                 />
               </div>
-              <IoMdClose
-                onClick={() => setIsOpenMenu(false)}
-                className="text-[#273C8C] text-xl"
-              />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
-    </motion.div>
+    </>
   );
 };
 

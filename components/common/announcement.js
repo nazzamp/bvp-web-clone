@@ -11,9 +11,11 @@ import { HiSpeakerWave } from "react-icons/hi2";
 import { LuLink } from "react-icons/lu";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Spinner from "../spinner/spinner";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const Announcement = () => {
   const router = useRouter();
+  const isMobile = useIsMobile();
 
   const { isPending, error, data } = useQuery({
     queryKey: ["announcements"],
@@ -23,6 +25,8 @@ const Announcement = () => {
           "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc?pagination[page]=1&pagination[pageSize]=10"
       ).then((res) => res.json()),
   });
+
+  if (isMobile) return;
 
   if (isPending) return <Spinner />;
 
@@ -65,7 +69,7 @@ const Announcement = () => {
   };
 
   return (
-    <div className="col-span-1 flex flex-col gap-4">
+    <div className="col-span-1 flex-col gap-4 flex">
       <div className="flex flex-col bg-[#FEF094] rounded-xl overflow-hidden">
         <div className="bg-[#005EBD] flex items-center gap-2 px-4 py-2">
           <FaPhoneFlip className="text-white" />

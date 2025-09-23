@@ -4,12 +4,13 @@ import { useRouter } from "nextjs-toploader/app";
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa6";
 
-const TopNavDropdownMenu = ({ title, field }) => {
+const TopNavDropdownMenu = ({ title, field, setIsOpenMenu }) => {
   const [isActive, setIsActive] = useState(false);
   const router = useRouter();
 
   const handleClick = (id) => () => {
     router.push("/departments/" + id);
+    setIsOpenMenu(false);
   };
 
   const renderField = (item, index) => {
@@ -23,8 +24,6 @@ const TopNavDropdownMenu = ({ title, field }) => {
       </a>
     );
   };
-
-  console.log({ isActive });
 
   return (
     <>

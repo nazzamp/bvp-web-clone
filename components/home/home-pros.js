@@ -4,13 +4,16 @@ import Image from "next/image";
 import React from "react";
 import ViewMoreButton from "../view-more-button/view-more-button";
 import { motion } from "motion/react";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const HomePros = () => {
+  const isMobile = useIsMobile();
+
   const FadeBox = ({ title, desc }) => {
     return (
-      <div className="flex flex-col text-white font-bold gap-2 bg-gradient-to-b from-[#1F365D00] to-[#23496A] absolute z-10 bottom-0 pb-8 pl-12 pt-20 w-full">
+      <div className="flex flex-col text-white font-bold gap-2 bg-gradient-to-b from-[#1F365D00] to-[#23496A] absolute z-10 bottom-0 pb-8 md:pl-12 px-6 pt-20 w-full">
         <p className="text-lg text-[#EAFBFF]">{desc}</p>
-        <p className="text-3xl">{title}</p>
+        <p className="text-2xl md:text-3xl">{title}</p>
       </div>
     );
   };
@@ -34,23 +37,24 @@ const HomePros = () => {
             alt="idea icon"
             width={64}
             height={64}
+            className="hidden md:block"
           />
-          <h2 className="text-center font-bold text-3xl bg-gradient-to-l text-[#273C8C]">
-            Đội ngũ chuyên gia
+          <h2 className="md:text-center font-bold text-3xl bg-gradient-to-l text-[#273C8C]">
+            Đội ngũ <br className="md:hidden block" /> chuyên gia
           </h2>
         </div>
         <ViewMoreButton theme="light" title="Xem thêm" />
       </motion.div>
-      <div className="grid grid-cols-2 mt-4 gap-3">
+      <div className="flex flex-col md:grid grid-cols-2 mt-4 gap-3">
         <div
-          className="h-[580px] relative rounded-l-2xl rounded-r-lg overflow-hidden"
+          className="h-[290px] md:h-[580px] relative rounded-l-2xl rounded-r-lg overflow-hidden"
           style={{ background: "url('/images/pro-bg.png')" }}
         >
           <Image
             src={"/images/hoang-van-hy.png"}
             alt="anh giam doc"
-            width={600}
-            height={600}
+            width={isMobile ? 300 : 600}
+            height={isMobile ? 300 : 600}
             className="absolute bottom-0 right-0 left-0 m-auto"
           />
           <FadeBox desc={"Giám đốc Bệnh viện"} title="BSCK1 Hoàng Văn Hy" />

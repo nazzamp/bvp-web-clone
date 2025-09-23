@@ -30,8 +30,8 @@ const DATA = [
 const HomeReasons = () => {
   const FadeBox = ({ title }) => {
     return (
-      <div className="flex flex-col text-white font-semibold gap-2 bg-gradient-to-b from-[#1F365D00] to-[#415661] absolute z-10 bottom-0 pb-8 pl-12 pt-20 w-full">
-        <p className="text-2xl">{title}</p>
+      <div className="flex flex-col text-white font-semibold gap-2 bg-gradient-to-b from-[#1F365D00] to-[#415661] absolute z-10 bottom-0 pb-6 md:pb-8 pl-4 md:pl-12 pt-20 w-full">
+        <p className="text-xl md:text-2xl">{title}</p>
       </div>
     );
   };
@@ -40,7 +40,7 @@ const HomeReasons = () => {
     return (
       <div
         className={
-          "h-[300px] relative rounded-l-2xl rounded-r-lg overflow-hidden " +
+          "h-[300px] relative rounded-l-2xl rounded-r-lg overflow-hidden mb-4 md:mb-0 " +
           (rowIndex % 2 === 0
             ? index % 2 === 0
               ? "col-span-3"
@@ -63,7 +63,7 @@ const HomeReasons = () => {
 
   const renderRow = (item, rowIndex) => {
     return (
-      <div key={rowIndex} className="grid grid-cols-5 w-full gap-2">
+      <div key={rowIndex} className="md:grid grid-cols-5 w-full md:gap-2 gap-0">
         {item.map((item, index) => (
           <ReasonGradCard
             data={item}
@@ -77,7 +77,7 @@ const HomeReasons = () => {
   };
 
   return (
-    <div className="mt-48 w-full rounded-3xl flex flex-col items-center">
+    <div className="mt-24 md:mt-48 w-full rounded-3xl flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, transform: "translateY(-32px)" }}
         whileInView={{ opacity: 1, transform: "translateY(0px)" }}
@@ -103,7 +103,7 @@ const HomeReasons = () => {
           Lý do chọn bệnh viện Phổi Quảng Ninh làm nơi khám chữa bệnh
         </h2>
       </motion.div>
-      <div className="w-full flex flex-col gap-2 mt-12">
+      <div className="w-full flex flex-col md:gap-2 mt-12">
         {DATA.map(renderRow)}
       </div>
     </div>

@@ -18,6 +18,7 @@ const ViewMoreButton = ({ title = "", theme = "dark" }) => {
       <FaArrowTurnUp
         size={16}
         style={{ color: isDarkTheme ? "#ffffff" : "#273C8C" }}
+        className="md:block hidden"
       />
     </button>
   );

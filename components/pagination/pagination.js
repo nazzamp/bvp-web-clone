@@ -12,21 +12,24 @@ export function PaginationCustom({ recentPage, lastPage, setRecentPage }) {
   const onClickPrev = () => {
     if (recentPage > 1) {
       setRecentPage((page) => page - 1);
+      window.scroll(0, 0);
     }
   };
 
   const onClickNext = () => {
     if (recentPage < lastPage) {
       setRecentPage((page) => page + 1);
+      window.scroll(0, 0);
     }
   };
 
   const setPage = (value) => () => {
     setRecentPage(value);
+    window.scroll(0, 0);
   };
 
   return (
-    <Pagination>
+    <Pagination className={"mt-8"}>
       <PaginationContent>
         <PaginationItem onClick={onClickPrev}>
           <PaginationPrevious />

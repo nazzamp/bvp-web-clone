@@ -25,7 +25,7 @@ const NewsDetail = () => {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <div className="flex w-full justify-center py-6">
+    <div className="flex w-full justify-center">
       <div className="container">
         <h1 className="text-2xl font-bold text-[#0066B1]">
           {data?.data?.title}

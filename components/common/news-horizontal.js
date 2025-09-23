@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { useRouter } from "nextjs-toploader/app";
 import { LuClock } from "react-icons/lu";
+import useIsMobile from "@/hooks/useIsMobile";
 
 const NewsHorizontal = ({
   id,
@@ -14,16 +15,20 @@ const NewsHorizontal = ({
   path = "news",
 }) => {
   const router = useRouter();
+  const isMobile = useIsMobile();
 
   const handleClick = () => {
     router.push("/" + path + "/" + id);
   };
 
   return (
-    <div className="flex relative cursor-pointer gap-4" onClick={handleClick}>
+    <div
+      className="flex flex-col md:flex-row relative cursor-pointer gap-4 md:mb-0 mb-8"
+      onClick={handleClick}
+    >
       <div
         className="flex relative rounded-2xl overflow-hidden shrink-0"
-        style={{ height: coverHeight, width: coverHeight }}
+        style={{ height: coverHeight, width: isMobile ? "100%" : coverHeight }}
       >
         <Image
           src={image}
