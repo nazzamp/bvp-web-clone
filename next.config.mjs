@@ -10,6 +10,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "bvp.nammh15.online",
       },
+      {
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };
