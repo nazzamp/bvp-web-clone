@@ -8,6 +8,3 @@ services:
       - "3000:3000"
 
     restart: always
-
-    environment:
-      - NEXT_PUBLIC_API_PATH=https://bvp.nammh15.online

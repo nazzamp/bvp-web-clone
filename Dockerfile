@@ -7,7 +7,7 @@ FROM node:20-alpine AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-ENV NEXT_PUBLIC_API_PATH=https://bvp.nammh15.online
+ENV NEXT_PUBLIC_API_PATH=https://admin.benhvienphoiquangninh.vn
 RUN npm run build
 
 FROM node:20-alpine AS runner
