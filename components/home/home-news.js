@@ -8,8 +8,11 @@ import Spinner from "../spinner/spinner";
 import { useQuery } from "@tanstack/react-query";
 import { API_PATH } from "@/constants/constants";
 import { motion } from "motion/react";
+import { useRouter } from "nextjs-toploader/app";
 
 const HomeNews = () => {
+  const router = useRouter();
+
   const { isPending, error, data } = useQuery({
     queryKey: ["news"],
     queryFn: () =>
@@ -55,7 +58,12 @@ const HomeNews = () => {
             <HomeNewsItem data={item} key={index} />
           ))}
       </div>
-      <ViewMoreButton title="Trang tin tức" />
+      <ViewMoreButton
+        title="Trang tin tức"
+        onClick={() => {
+          router.push("/news");
+        }}
+      />
     </div>
   );
 };

@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import { motion } from "motion/react";
-import useIsMobile from "@/hooks/useIsMobile";
 import { useWindowSize } from "@uidotdev/usehooks";
+import Link from "next/link";
 
 const HomeTop = () => {
   const size = useWindowSize();
@@ -58,20 +57,30 @@ const HomeTop = () => {
               chẩn ca bệnh từ xa với tuyến trên, tuyến dưới, phát triển chuyên
               môn trong chẩn đoán, điều trị cho bệnh nhân hô hấp
             </p>
-            <Button className="mr-2 bg-[#273C8C] hover:bg-[#697ec8] text-white font-semibold rounded-full px-6 py-2">
-              Liên hệ với bệnh viện
-            </Button>
-            <Button
-              className={
-                "bg-white font-semibold rounded-full text-[#273C8C]  px-6 py-2"
-              }
-              variant={"secondary"}
-              style={{
-                boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-              }}
+            <Link
+              href={"https://www.facebook.com/BvPhoiQuangNinh"}
+              target="_blank"
             >
-              Hỏi đáp
-            </Button>
+              <Button className="mr-2 bg-[#273C8C] hover:bg-[#697ec8] text-white font-semibold rounded-full px-6 py-2">
+                Liên hệ với bệnh viện
+              </Button>
+            </Link>
+            <Link
+              href={"https://www.facebook.com/BvPhoiQuangNinh"}
+              target="_blank"
+            >
+              <Button
+                className={
+                  "bg-white font-semibold rounded-full text-[#273C8C]  px-6 py-2"
+                }
+                variant={"secondary"}
+                style={{
+                  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+                }}
+              >
+                Hỏi đáp
+              </Button>
+            </Link>
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}

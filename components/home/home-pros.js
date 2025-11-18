@@ -5,8 +5,10 @@ import React from "react";
 import ViewMoreButton from "../view-more-button/view-more-button";
 import { motion } from "motion/react";
 import useIsMobile from "@/hooks/useIsMobile";
+import { useRouter } from "nextjs-toploader/app";
 
 const HomePros = () => {
+  const router = useRouter();
   const isMobile = useIsMobile();
 
   const FadeBox = ({ title, desc }) => {
@@ -43,7 +45,13 @@ const HomePros = () => {
             Đội ngũ <br className="md:hidden block" /> chuyên gia
           </h2>
         </div>
-        <ViewMoreButton theme="light" title="Xem thêm" />
+        <ViewMoreButton
+          theme="light"
+          title="Xem thêm"
+          onClick={() => {
+            router.push("/departments/sqkfp8nx50l83zt2mhl18agw");
+          }}
+        />
       </motion.div>
       <div className="flex flex-col md:grid grid-cols-2 mt-4 gap-3">
         <div
