@@ -156,7 +156,8 @@ const TopNav = () => {
   };
 
   const handleClick = () => {
-    router.push("/appointment");
+    // router.push("https://22044.byt.vn/kcb/dang-ky-kham");
+    window.open("https://22044.byt.vn/kcb/dang-ky-kham", "_blank");
     setIsOpenMenu(false);
   };
 
