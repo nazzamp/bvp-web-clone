@@ -21,6 +21,25 @@ const Home = () => {
         <HomeFAQ />
         <HomeMap />
         {/* <FloatButton /> */}
+        <div className="fixed bottom-8 right-8 z-50 text-white flex flex-col gap-1 text-sm bg-gray-500/10 p-2 rounded-3xl">
+          <div className="px-3 py-2 bg-gray-700 font-medium rounded-full">
+            <span className="font-bold">Bộ Y tế: </span>
+            <a href="tel:19009095">19009095</a>
+          </div>
+          <div className="px-3 py-2 bg-gray-700 font-medium rounded-full">
+            <span className="font-bold">Sở Y tế: </span>
+            <a href="tel:0966631313">0966631313</a>
+          </div>
+          <div className="px-3 py-2 bg-red-600 font-medium rounded-full text-center">
+            <a
+              href="https://soytequangninh.gov.vn/trang-chu-chinh/thong-tin-van-chuyen-cap-cuu1"
+              target="_blank"
+              className="font-bold"
+            >
+              Thông tin cấp cứu
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );

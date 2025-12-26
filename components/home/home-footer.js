@@ -23,10 +23,7 @@ const HomeFooter = () => {
               <FaMapMarkerAlt size={20} />
               <span className="text-xl font-bold">Địa chỉ</span>
             </div>
-            <p>
-              Số 1 Ngõ 32 Đường Trần Phú, Phường Cao Xanh, Hạ Long, Quảng Ninh,
-              Vietnam
-            </p>
+            <p>Số 1 Ngõ 32 Đường Trần Phú, Phường Cao Xanh, Quảng Ninh</p>
           </div>
           <div className="mt-16">
             <div className="flex items-center gap-2 mb-4">

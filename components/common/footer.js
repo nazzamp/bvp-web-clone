@@ -12,8 +12,7 @@ const Footer = () => {
           <div className="flex gap-2 items-center">
             <FaMapMarkerAlt />
             <span>
-              Số 1, Ngõ 32, Đường Trần Phú, Phường Cao Xanh, TP Hạ Long, tỉnh
-              Quảng Ninh.
+              Số 1, Ngõ 32, Đường Trần Phú, Phường Cao Xanh, tỉnh Quảng Ninh
             </span>
           </div>
           <span>Số điện thoại bệnh viện: 02033.825101</span>
