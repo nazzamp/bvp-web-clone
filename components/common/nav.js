@@ -22,7 +22,7 @@ const DATA = [
       },
       {
         label: "Chức năng nhiệm vụ",
-        documentId: "hxtn8sctebz2q7ucy0jkow29",
+        documentId: "cw42mknucklis640eb9aq0ht",
       },
       {
         label: "Ban giám đốc",
