@@ -12,19 +12,30 @@ import { LuLink } from "react-icons/lu";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import Spinner from "../spinner/spinner";
 import useIsMobile from "@/hooks/useIsMobile";
+import qs from "qs";
 
 const Announcement = () => {
   const router = useRouter();
   const isMobile = useIsMobile();
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["announcements"],
+    queryKey: ["announcements", "top10anc"],
     queryFn: () =>
-      fetch(
-        API_PATH +
-          "/api/announcements?populate[0]=cover&fields[0]=title&fields[1]=documentId&fields[2]=writtenAt&sort=writtenAt:desc?pagination[page]=1&pagination[pageSize]=10"
-      ).then((res) => res.json()),
+      fetch(API_PATH + `/api/announcements?${query}`).then((res) => res.json()),
+    keepPreviousData: true,
   });
+
+  const query = qs.stringify(
+    {
+      populate: ["cover"],
+      fields: ["title", "documentId", "writtenAt"],
+      sort: ["writtenAt:desc"],
+      pagination: { page: 1, pageSize: 10 },
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
 
   if (isMobile) return;
 

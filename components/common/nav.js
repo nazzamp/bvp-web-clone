@@ -29,28 +29,40 @@ const DATA = [
         documentId: "sqkfp8nx50l83zt2mhl18agw",
       },
       {
-        label: "Khoa Chẩn đoán hình ảnh",
-        documentId: "e7ejgyrpgc9ebsaxhnji3las",
+        label: "Phòng Kế hoạch tổng hợp",
+        documentId: "xuxgxme7khi7lbpxu3675tw2",
       },
       {
-        label: "Khoa Dinh dưỡng",
-        documentId: "op2vlrzmgy1x0uy5yjhkcy32",
+        label: "Phòng Tổ chức hành chính",
+        documentId: "o3r3p0hnek0gfkt4vr9cbn1c",
       },
       {
-        label: "Khoa Dược",
-        documentId: "iwz6gk24n1gk2vpy4si2tgaj",
+        label: "Phòng Tài chính kế toán",
+        documentId: "vcrum5tukfr8vgj7kb8ht84w",
       },
       {
-        label: "Khoa Hồi sức cấp cứu",
-        documentId: "n4ix00fzaljfqbpmvgwtnits",
+        label: "Phòng Điều dưỡng",
+        documentId: "qqtgrnqj86pq2a51xar5nfg7 ",
       },
       {
-        label: "Khoa kiểm soát nhiễm khuẩn",
-        documentId: "b7fmh5lz4d0lvtwpjvnb6xqm",
+        label: "Phòng Chỉ đạo tuyến",
+        documentId: "nepn58b0n5xetqjba00amw53",
       },
       {
-        label: "Khoa khám bệnh",
+        label: "Phòng Quản lý chất lượng",
+        documentId: "s2368a1j54rnxoyy6brryujh",
+      },
+      {
+        label: "Khoa Khám bệnh Đa khoa",
         documentId: "dd5mairry9x1z3o8ho1q1ojb",
+      },
+      {
+        label: "Phòng khám đa khoa Khu vực Hà Tu",
+        documentId: "zyyhe04250uoho538e1oz42t",
+      },
+      {
+        label: "Khoa Hồi sức tích cực",
+        documentId: "n4ix00fzaljfqbpmvgwtnits",
       },
       {
         label: "Khoa Nội 1",
@@ -65,32 +77,32 @@ const DATA = [
         documentId: "qook1772ppanmsk6zwnrhyek",
       },
       {
-        label: "Khoa Phục hồi chức năng - Vật lý trị liệu",
+        label: "Khoa Phục hồi chức năng - Y học cổ truyền",
         documentId: "dsakontoawn1x7h9veqsxmua",
       },
       {
-        label: "Khoa xét nghiệm",
+        label: "Khoa Thăm dò chức năng - Nội soi can thiệp",
+        documentId: "iw2xva6n9ro4rep45k2z9myc",
+      },
+      {
+        label: "Khoa Chẩn đoán hình ảnh",
+        documentId: "e7ejgyrpgc9ebsaxhnji3las",
+      },
+      {
+        label: "Khoa Xét nghiệm",
         documentId: "cpvudth3ds93dj74bthamrum",
       },
       {
-        label: "Phòng Chỉ đạo chuyên khoa",
-        documentId: "nepn58b0n5xetqjba00amw53",
+        label: "Khoa Dược - Thiết bị - Vật tư y tế",
+        documentId: "iwz6gk24n1gk2vpy4si2tgaj",
       },
       {
-        label: "Phòng Điều dưỡng",
-        documentId: "qqtgrnqj86pq2a51xar5nfg7 ",
+        label: "Khoa Dinh dưỡng",
+        documentId: "op2vlrzmgy1x0uy5yjhkcy32",
       },
       {
-        label: "Phòng Kế hoạch tổng hợp",
-        documentId: "xuxgxme7khi7lbpxu3675tw2",
-      },
-      {
-        label: "Phòng Tài chính kế toán",
-        documentId: "vcrum5tukfr8vgj7kb8ht84w",
-      },
-      {
-        label: "Phòng Tổ chức hành chính",
-        documentId: "o3r3p0hnek0gfkt4vr9cbn1c",
+        label: "Khoa Kiểm soát nhiễm khuẩn",
+        documentId: "b7fmh5lz4d0lvtwpjvnb6xqm",
       },
     ],
   },
