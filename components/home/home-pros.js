@@ -53,8 +53,8 @@ const HomePros = () => {
           }}
         />
       </motion.div>
-      <div className="flex flex-col md:grid grid-cols-2 mt-4 gap-3">
-        <div
+      {/* <div className="flex flex-col md:grid grid-cols-2 mt-4 gap-3"> */}
+      {/* <div
           className="h-[290px] md:h-[580px] relative rounded-l-2xl rounded-r-lg overflow-hidden"
           style={{ background: "url('/images/pro-bg.png')" }}
         >
@@ -66,41 +66,38 @@ const HomePros = () => {
             className="absolute bottom-0 right-0 left-0 m-auto"
           />
           <FadeBox desc={"Giám đốc Bệnh viện"} title="BSCK1 Hoàng Văn Hy" />
+        </div> */}
+      <div className="flex flex-col h-[580px] gap-3 md:grid grid-cols-2">
+        <div
+          className="flex flex-1 relative rounded-r-2xl rounded-l-lg overflow-hidden justify-end h-[290px]"
+          style={{ background: "url('/images/pro-bg.png')" }}
+        >
+          <Image
+            src={"/images/tran-van-dung.png"}
+            alt="anh giam doc"
+            width={300}
+            height={300}
+          />
+          <FadeBox
+            desc={"Phó Giám đốc bệnh viện"}
+            title="BSCK1 Trần Văn Dũng"
+          />
         </div>
-        <div className="flex flex-col h-[580px] gap-3">
-          <div
-            className="flex flex-1 relative rounded-r-2xl rounded-l-lg overflow-hidden justify-end"
-            style={{ background: "url('/images/pro-bg.png')" }}
-          >
-            <Image
-              src={"/images/tran-van-dung.png"}
-              alt="anh giam doc"
-              width={300}
-              height={300}
-            />
-            <FadeBox
-              desc={"Phó Giám đốc bệnh viện"}
-              title="BSCK1 Trần Văn Dũng"
-            />
-          </div>
-          <div
-            className="flex flex-1 relative rounded-r-2xl rounded-l-lg overflow-hidden justify-end"
-            style={{ background: "url('/images/pro-bg.png')" }}
-          >
-            <Image
-              src={"/images/vu-van-thong.png"}
-              alt="anh giam doc"
-              width={300}
-              height={300}
-            />
-            <FadeBox
-              desc={"Phó Giám đốc bệnh viện"}
-              title="BSCK1 Vũ Văn Thông"
-            />
-          </div>
+        <div
+          className="flex flex-1 relative rounded-r-2xl rounded-l-lg overflow-hidden justify-end h-[290px]"
+          style={{ background: "url('/images/pro-bg.png')" }}
+        >
+          <Image
+            src={"/images/vu-van-thong.png"}
+            alt="anh giam doc"
+            width={300}
+            height={300}
+          />
+          <FadeBox desc={"Phó Giám đốc bệnh viện"} title="BSCK1 Vũ Văn Thông" />
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
