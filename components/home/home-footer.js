@@ -32,8 +32,8 @@ const HomeFooter = () => {
             </div>
             <div className="flex flex-col gap-2">
               <p>Tổng đài: 02033.825101</p>
-              <p>Đường dây nóng: 0966421313</p>
-              <p>Giám đốc bệnh viện: 0917363566</p>
+              <p>Đường dây nóng: 0356639666</p>
+              <p>Giám đốc bệnh viện: 0356639666</p>
               <p>Địa chỉ mail: benhvienphoiquangninh@gmail.com</p>
             </div>
           </div>
@@ -50,7 +50,8 @@ const HomeFooter = () => {
             </div>
           </div>
           <div className="mt-16">
-            <p>Copyright (c) 2025 by Quang Ninh Lung Hospital</p>
+            <p>Copyright (c) 2026 by Quang Ninh Lung Hospital</p>
+            <p>Chịu trách nhiệm: Ths, BS Nguyễn Đức Thanh</p>
           </div>
         </div>
       </div>

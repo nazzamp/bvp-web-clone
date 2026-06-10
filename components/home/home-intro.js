@@ -47,7 +47,7 @@ const HomeIntro = () => {
           <div className="md:col-span-3 md:grid grid-cols-3 gap-3 flex flex-col">
             <div className="md:col-span-2 h-[280px] relative rounded-lg overflow-hidden">
               <Image
-                src={"/images/intro-1.png"}
+                src={"/images/intro-1.webp"}
                 alt="doctor"
                 fill
                 style={{ objectFit: "cover" }}
