@@ -169,7 +169,7 @@ const TopNav = () => {
 
   const handleClick = () => {
     // router.push("https://22044.byt.vn/kcb/dang-ky-kham");
-    window.open("https://22044.byt.vn/kcb/dang-ky-kham", "_blank");
+    window.open("https://dangky.benhvienphoiquangninh.vn", "_blank");
     setIsOpenMenu(false);
   };
 
